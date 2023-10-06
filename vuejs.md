@@ -290,4 +290,86 @@ const timeDisplay = computed(() => {
 </style>
 ```
 
-J'ai ajouté des classes Tailwind CSS pour le style du chronomètre et du bouton de soumission. Assurez-vous d'inclure Tailwind CSS dans votre projet pour que ces styles fonctionnent correctement. Si vous avez des classes Tailwind CSS personnalisées, n'hésitez pas à les ajouter également.
+J'ai ajouté des classes Tailwind CSS pour le style du chronomètre et du bouton de soumission. 
+
+
+
+Assurez-vous d'inclure Tailwind CSS dans votre projet pour que ces styles fonctionnent correctement. Si vous avez des classes Tailwind CSS personnalisées, n'hésitez pas à les ajouter également.
+
+
+------
+<template>
+  <form @submit.prevent="submitForm">
+    <div>
+      <label for="select1">Select 1:</label>
+      <select v-model="selectedOption1" id="select1">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <!-- Ajoutez plus d'options si nécessaire -->
+      </select>
+    </div>
+    
+    <div>
+      <label for="select2">Select 2:</label>
+      <select v-model="selectedOption2" id="select2">
+        <option value="optionA">Option A</option>
+        <option value="optionB">Option B</option>
+        <!-- Ajoutez plus d'options si nécessaire -->
+      </select>
+    </div>
+    
+    <button type="submit">Envoyer</button>
+  </form>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      selectedOption1: '',
+      selectedOption2: ''
+    };
+  },
+  methods: {
+    submitForm() {
+      // Envoyez les valeurs sélectionnées où vous en avez besoin
+      // par exemple, en utilisant Axios ou un autre moyen d'envoi de requêtes.
+    }
+  }
+}
+</script>
+
+
+
+-----------
+
+<template>
+  <div>
+    <!-- ... Autres contenus ... -->
+    
+    <MyForm />
+  </div>
+</template>
+
+<script>
+import MyForm from '@/chemin/vers/MyForm.vue';
+
+export default {
+  components: {
+    MyForm
+  }
+}
+</script>
+
+
+-----------
+
+Récupérer les valeurs :
+Dans la méthode submitForm du composant de formulaire, vous pouvez maintenant utiliser les valeurs selectedOption1 et selectedOption2 comme vous le souhaitez. Par exemple, vous pouvez les envoyer à votre backend pour traitement.
+
+
+
+
+
+
+
